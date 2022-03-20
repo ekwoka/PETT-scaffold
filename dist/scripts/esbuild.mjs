@@ -8,12 +8,12 @@ const dev = process.env.NODE_ENV === 'development';
 
 console.time('esbuild');
 build({
-    entryPoints: ['./src/index.jsx'],
+    entryPoints: ['./src/index.tsx'],
     jsxFactory: 'h',
     jsxFragment: 'Fragment',
     outfile: './dist/index.js',
     bundle: true,
-    inject: ['./src/preact-shim.js'],
+    inject: ['./src/preact-shim.ts'],
     target: 'es2017',
     platform: 'browser',
     minify: !dev,
