@@ -1,4 +1,4 @@
-import { StateUpdater, useEffect } from 'preact/hooks';
+import { useEffect } from 'preact/hooks';
 import { useGlobalState } from 'preact-global-state';
 
 let toAdd = 0;
@@ -10,14 +10,13 @@ type UseClicks = {
 };
 
 export function useClicks(): UseClicks {
-  const [clicks, setClicks]: [number, StateUpdater<number>] =
-    useGlobalState<number>('clicks', 0);
+  const [clicks, setClicks] = useGlobalState<number>('clicks', 0);
   useEffect(() => initUI(setClicks), []);
 
   return { clicks };
 }
 
-const initUI = (setClicks: StateUpdater<number>) => {
+const initUI = (setClicks: (v: number) => void) => {
   if (initialized) return;
   let lastFrame = Date.now();
   let lastValue = 0;
