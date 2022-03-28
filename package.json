@@ -11,7 +11,7 @@
     "ncp": "^2.0.0"
   },
   "bin": {
-    "pett-app": "bin/index.mjs"
+    "create-pett-app": "bin/index.mjs"
   },
   "author": "Eric Kwoka",
   "license": "MIT"
