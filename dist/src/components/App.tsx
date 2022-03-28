@@ -1,3 +1,3 @@
-import { Counter } from './Counter';
+import { LogoCluster } from './LogoCluster';
 
-export const App = () => <Counter />;
+export const App = () => <LogoCluster />;
