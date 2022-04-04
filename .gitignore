@@ -5,3 +5,4 @@ node_modules
 dist/dist/index.html
 dist/dist/index.js
 dist/dist/styles.css
+pnpm-lock.yaml
