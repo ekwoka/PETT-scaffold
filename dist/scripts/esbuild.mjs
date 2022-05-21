@@ -1,9 +1,9 @@
 import { build } from 'esbuild';
-import { esbuildPluginFileSize } from 'esbuild-plugin-filesize';
 import importGlobPlugin from 'esbuild-plugin-import-glob';
-import alias from 'esbuild-plugin-alias';
-import { resolve } from 'import-meta-resolve';
 import { copy } from 'esbuild-plugin-copy';
+import alias from 'esbuild-plugin-alias';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 const dev = process.env.NODE_ENV === 'development';
 
@@ -12,9 +12,11 @@ build({
   entryPoints: ['./src/index.tsx'],
   jsxFactory: 'h',
   jsxFragment: 'Fragment',
-  outfile: './dist/index.js',
-  bundle: true,
+  outdir: './dist',
   inject: ['./src/preact-shim.ts'],
+  splitting: true,
+  format: 'esm',
+  bundle: true,
   target: 'es2017',
   platform: 'browser',
   minify: !dev,
@@ -33,17 +35,9 @@ build({
         to: ['./dist'],
       },
     }),
-    alias({
-      react: await resolve('preact/compat', import.meta.url),
-      'react-dom': await resolve('preact/compat', import.meta.url),
-    }),
     importGlobPlugin.default(),
-    esbuildPluginFileSize({
-      showBrotliSize: true,
-      showPluginTitle: false,
-      showGzippedSize: false,
-      showMinifiedSize: false,
-      theme: 'dark',
+    alias({
+      react: require.resolve('preact/compat'),
     }),
   ],
 }).then(async (res) => {

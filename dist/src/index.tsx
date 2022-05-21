@@ -1,4 +1,6 @@
-import { App } from './components/App';
+import { hydrate } from 'preact';
+import { App } from './App';
 import { render } from './preact-shim';
 
-render(App(), document.body);
+if (document.body.children.length) hydrate(App(), document.body);
+else render(App(), document.body);
