@@ -3,11 +3,12 @@
   "version": "0.0.5",
   "description": "Preact, Esbuild, Tailwindcss, Typescript",
   "scripts": {
-    "patch": "npm version patch && npm publish",
-    "minor": "npm version minor && npm publish"
+    "patch": "pnpm version patch && pnpm publish",
+    "minor": "pnpm version minor && pnpm publish"
   },
   "dependencies": {
     "command-line-args": "^5.2.1",
+    "draftlog": "^1.0.13",
     "ncp": "^2.0.0"
   },
   "bin": {
