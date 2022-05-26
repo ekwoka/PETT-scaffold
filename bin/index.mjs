@@ -37,7 +37,7 @@ const optionDefinitions = [
 const options = commandLineArgs(optionDefinitions);
 
 const dest = options.dir ? `${options.dir}` : 'new-pett-app';
-const packageManager = ['pnpm', 'npm', 'yarn'].includes(options.packageManager) ? `${options.packageManager}` : 'npm';
+const packageManager = ['pnpm', 'npm', 'yarn'].includes(options['package-manager']) ? `${options['package-manager']}` : 'npm';
 
 const updateStatus = draftWithArrow('Building New PETT App...');
 
