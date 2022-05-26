@@ -13,8 +13,7 @@
     "watch:js": "NODE_ENV=development node scripts/esbuild.mjs",
     "watch:css": "tailwindcss -i src/tailwind.pre.css -o dist/styles.css -w",
     "lint": "eslint src && prettier --check src",
-    "lint-fix": "eslint --fix src && prettier --write src",
-    "upgrade": "ncu -u && pnpm i && pnpm build && git commit -S -am ':arrow_up: Dependencies' && pnpm version patch"
+    "lint-fix": "eslint --fix src && prettier --write src"
   },
   "author": "",
   "license": "ISC",
@@ -22,7 +21,6 @@
     "@heroicons/react": "^1.0.6",
     "dotenv": "^16.0.1",
     "preact": "^10.7.2",
-    "preact-global-state": "^1.0.4",
     "preact-router": "^4.0.1"
   },
   "devDependencies": {
