@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ekwoka/preact-global-state": "^0.1.0",
+    "@ekwoka/preact-global-state": "^0.1.1",
     "@heroicons/react": "^1.0.6",
     "dotenv": "^16.0.1",
     "preact": "^10.7.2",
@@ -27,8 +27,8 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.2",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
     "autoprefixer": "^10.4.7",
     "esbuild": "^0.14.42",
     "esbuild-plugin-alias": "^0.2.1",
@@ -46,6 +46,13 @@
     "prettier-plugin-tailwindcss": "^0.1.11",
     "tailwindcss": "^3.0.24",
     "typescript": "^4.7.2"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react"
+      ]
+    }
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
