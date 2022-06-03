@@ -1,6 +1,6 @@
 # Create PETT App
 
-[<img src="https://badgen.net/npm/v/@ekwoka/create-pett-app">](https://www.npmjs.com/package/@ekwoka/create-pett-app) <img src="https://badgen.net/npm/types/@ekwoka/create-pett-app?icon=typescript"> <img src="https://badgen.net/npm/dt/@ekwoka/create-pett-app" >
+[<img src="https://badgen.net/npm/v/@ekwoka/create-pett-app">](https://www.npmjs.com/package/@ekwoka/create-pett-app) <img src="https://badgen.net/badge/types/ready/blue?icon=typescript"> <img src="https://badgen.net/npm/dt/@ekwoka/create-pett-app" >
 
 - Preact
 - ESBuild
