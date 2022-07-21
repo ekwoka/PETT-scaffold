@@ -1,6 +1,6 @@
 # Create PETT App
 
-[<img src="https://badgen.net/npm/v/@ekwoka/create-pett-app">](https://www.npmjs.com/package/@ekwoka/create-pett-app) <img src="https://badgen.net/badge/types/ready/blue?icon=typescript"> <img src="https://badgen.net/npm/dt/@ekwoka/create-pett-app" >
+[<img src="https://badgen.net/npm/v/create-pett-app">](https://www.npmjs.com/package/create-pett-app) <img src="https://badgen.net/badge/types/ready/blue?icon=typescript"> <img src="https://badgen.net/npm/dt/create-pett-app" >
 
 - Preact
 - ESBuild
@@ -10,20 +10,21 @@
 Create PETT App scaffolds a simple directory for an app using the above technologies, so you don't have to deal with setting up the environment yourself
 
 ## How to Use
+
 Choose your flavour:
 
 ```bash
-npm init @ekwoka/pett-app [dirname] [options]
+npm init pett-app [dirname] [options]
 
-pnpm create @ekwoka/create-pett-app [dirname] -p pnpm [options]
+pnpm create create-pett-app [dirname] -p pnpm [options]
 
-yarn create @ekwoka/pett-app -p yarn [direname]
+yarn create pett-app -p yarn [direname]
 ```
 
 Recommended:
 
 ```bash
-pnpm create @ekwoka/create-pett-app -lp pnpm [dirname]
+pnpm create create-pett-app -lp pnpm [dirname]
 ```
 
 Simple!!!
@@ -31,7 +32,9 @@ Simple!!!
 ## Options
 
 ### Package Manager:
+
 Defines which package manager to use when installing deps
+
 - Long: `--packagemanager`
 - Alias: `-p`
 - Default: `npm`
@@ -41,24 +44,25 @@ Defines which package manager to use when installing deps
   - `yarn`
 
 ### TypeScript
+
 Allows you to disable TypeScript (Currently does not have template)
+
 - Long: `--typescript`
 - Default: `true`
 - Options:
-	- `true`
-	- `false`
-
+  - `true`
+  - `false`
 
 ### Linting
+
 Installs esLint and Prettier
+
 - Long: `--lint`
 - Alias: `-l`
 - Default: false
 - Options:
-	- `true`
-	- `false`
-
-
+  - `true`
+  - `false`
 
 ## Roadmap
 
