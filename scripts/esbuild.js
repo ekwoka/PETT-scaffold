@@ -9,7 +9,7 @@ const paths = await getAllTypeScript(['./src'], ['.ts', '.tsx']);
 console.time('esbuild');
 build({
   entryPoints: paths,
-  outdir: './test',
+  outdir: './bin',
   inject: [],
   splitting: false,
   format: 'esm',
