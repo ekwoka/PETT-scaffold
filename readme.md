@@ -10,20 +10,58 @@
 Create PETT App scaffolds a simple directory for an app using the above technologies, so you don't have to deal with setting up the environment yourself
 
 ## How to Use
+Choose your flavour:
 
 ```bash
-npx @ekwoka/create-pett-app [dirname] [options]
+npm init @ekwoka/pett-app [dirname] [options]
+
+pnpm create @ekwoka/create-pett-app [dirname] -p pnpm [options]
+
+yarn create @ekwoka/pett-app -p yarn [direname]
+```
+
+Recommended:
+
+```bash
+pnpm create @ekwoka/create-pett-app -lp pnpm [dirname]
 ```
 
 Simple!!!
 
 ## Options
 
-Package Manager:
-`--package-manager`
-
+### Package Manager:
+Defines which package manager to use when installing deps
+- Long: `--packagemanager`
+- Alias: `-p`
 - Default: `npm`
 - Acceptable Options:
   - `npm`
   - `pnpm`
   - `yarn`
+
+### TypeScript
+Allows you to disable TypeScript (Currently does not have template)
+- Long: `--typescript`
+- Default: `true`
+- Options:
+	- `true`
+	- `false`
+
+
+### Linting
+Installs esLint and Prettier
+- Long: `--lint`
+- Alias: `-l`
+- Default: false
+- Options:
+	- `true`
+	- `false`
+
+
+
+## Roadmap
+
+- Add JS Template
+- Add Option to include Netlify Template Files
+- Add Option to include Testing and example tests
