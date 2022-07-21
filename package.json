@@ -2,7 +2,7 @@
   "name": "@ekwoka/create-pett-app",
   "author": "Eric Kwoka",
   "license": "MIT",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Preact, Esbuild, Tailwindcss, Typescript",
   "type": "module",
   "bin": {
