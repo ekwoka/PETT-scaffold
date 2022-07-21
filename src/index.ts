@@ -65,11 +65,10 @@ const bundles = buildBundles({
   netlify,
 });
 
-await Promise.all(
-  Object.entries(bundles).map(([label, { path, deps }]) =>
-    install(path, dir, label, packageManager, deps)
-  )
-);
+for await (const pkg of Object.entries(bundles)) {
+  const [label, { path, deps }] = pkg;
+  await install(path, dir, label, packageManager, deps);
+}
 
 updateStatus(inGREEN('PETT App Successfully Installed'));
 

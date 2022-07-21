@@ -1,5 +1,4 @@
 import { build } from 'esbuild';
-import importGlobPlugin from 'esbuild-plugin-import-glob';
 import { copy } from 'esbuild-plugin-copy';
 import alias from 'esbuild-plugin-alias';
 import { createRequire } from 'module';
@@ -35,7 +34,6 @@ build({
         to: ['./dist'],
       },
     }),
-    importGlobPlugin.default(),
     alias({
       react: require.resolve('preact/compat'),
     }),
