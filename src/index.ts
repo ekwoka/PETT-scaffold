@@ -2,8 +2,8 @@
 import { join } from 'node:path';
 import commandLineArgs from 'command-line-args';
 import DraftLog from 'draftlog';
-import { intervalProgress } from './utils/index.js';
-import { inGREEN } from './utils/colors.js';
+import { execShellCommand, intervalProgress } from './utils/index.js';
+import { inCYAN, inGREEN } from './utils/colors.js';
 import { buildPackage } from './packages/buildpackage.js';
 import { install } from './install.js';
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -69,6 +69,10 @@ for await (const pkg of Object.entries(bundles)) {
   const [label, { path, deps }] = pkg;
   await install(path, dir, label, packageManager, deps);
 }
+
+const updateBuild = intervalProgress('Building Project...');
+await execShellCommand(`cd ${dir} && ${packageManager} run build`);
+updateBuild(inCYAN('Project Built'), inGREEN('[OK]'));
 
 updateStatus(inGREEN('PETT App Successfully Installed'));
 
