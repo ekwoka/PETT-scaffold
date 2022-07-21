@@ -10,7 +10,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { buildBundles } from './packages/buildBundles.js';
 DraftLog(console);
 
-console.time('completed');
+console.time('App Built');
 
 const optionDefinitions = [
   {
@@ -79,4 +79,4 @@ updateStatus(inGREEN('PETT App Successfully Installed'));
 console.log('Enjoy your new App!');
 console.log(`Just 'cd ${dir}' and Enjoy!!!`);
 
-console.timeEnd('completed');
+console.timeEnd('App Built');
