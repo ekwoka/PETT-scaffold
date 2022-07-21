@@ -15,7 +15,8 @@
     "test": "run-s build create clean",
     "lint": "prettier --write . --loglevel error",
     "patch": "pnpm run build && pnpm version patch && pnpm publish",
-    "minor": "pnpm run build && pnpm version minor && pnpm publish"
+    "minor": "pnpm run build && pnpm version minor && pnpm publish",
+    "major": "pnpm run build && pnpm version major && pnpm publish"
   },
   "dependencies": {
     "command-line-args": "^5.2.1",
