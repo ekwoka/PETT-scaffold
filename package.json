@@ -1,19 +1,40 @@
 {
   "name": "@ekwoka/create-pett-app",
+  "author": "Eric Kwoka",
+  "license": "MIT",
   "version": "0.2.3",
   "description": "Preact, Esbuild, Tailwindcss, Typescript",
+  "type": "module",
+  "bin": {
+    "create-pett-app": "bin/index.js"
+  },
   "scripts": {
+    "build": "node scripts/esbuild.js",
+    "clean": "rm -rf new-pett-app test",
+    "create": "node test/index.js -p bun --typescript=false",
+    "test": "run-s build create clean",
+    "lint": "prettier --write . --loglevel error",
     "patch": "pnpm version patch && pnpm publish",
     "minor": "pnpm version minor && pnpm publish"
   },
   "dependencies": {
     "command-line-args": "^5.2.1",
     "draftlog": "^1.0.13",
-    "ncp": "^2.0.0"
+    "ncp": "^2.0.0",
+    "ts-node": "^10.9.1"
   },
-  "bin": {
-    "create-pett-app": "bin/index.mjs"
+  "devDependencies": {
+    "@types/command-line-args": "^5.2.0",
+    "@types/ncp": "^2.0.5",
+    "@types/node": "^18.0.6",
+    "esbuild": "^0.14.42",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.2",
+    "prettier-plugin-tailwindcss": "^0.1.11",
+    "typescript": "^4.7.3"
   },
-  "author": "Eric Kwoka",
-  "license": "MIT"
+  "prettier": {
+    "singleQuote": true,
+    "bracketSameLine": true
+  }
 }

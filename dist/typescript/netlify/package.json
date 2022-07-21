@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "serve": "netlify dev",
+    "netlify": "run-s prebuild build",
+    "lint": "eslint --fix src; prettier --write src --loglevel error; eslint --fix api; prettier --write api --loglevel error"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^1.0.0",
+    "@types/node": "^17.0.41"
+  }
+}

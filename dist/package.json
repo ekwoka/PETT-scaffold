@@ -3,49 +3,32 @@
   "version": "0.2.3",
   "description": "",
   "scripts": {
-    "tsc": "tsc",
     "clean": "rm -rf dist && mkdir dist",
     "prebuild": "run-s clean",
-    "build": "run-s tsc lint build:*",
+    "build": "run-s build:*",
     "build:js": "node scripts/esbuild.mjs",
     "build:css": "tailwindcss -i src/tailwind.pre.css -o dist/styles.css -m",
     "watch": "run-p watch:*",
     "watch:js": "NODE_ENV=development node scripts/esbuild.mjs",
-    "watch:css": "tailwindcss -i src/tailwind.pre.css -o dist/styles.css -w",
-    "lint": "eslint src && prettier --check src",
-    "lint-fix": "eslint --fix src && prettier --write src"
+    "watch:css": "tailwindcss -i src/tailwind.pre.css -o dist/styles.css -w"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Eric Kwoka",
+  "license": "MIT",
   "dependencies": {
-    "@ekwoka/preact-global-state": "^0.1.2",
     "@heroicons/react": "^1.0.6",
-    "dotenv": "^16.0.1",
     "preact": "^10.7.3",
     "preact-router": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.2",
-    "@typescript-eslint/eslint-plugin": "^5.27.0",
-    "@typescript-eslint/parser": "^5.27.0",
     "autoprefixer": "^10.4.7",
     "esbuild": "^0.14.42",
     "esbuild-plugin-alias": "^0.2.1",
-    "esbuild-plugin-clean": "^0.9.0",
     "esbuild-plugin-copy": "^1.3.0",
-    "esbuild-plugin-filesize": "^0.3.0",
-    "esbuild-plugin-import-glob": "^0.1.1",
-    "eslint": "^8.17.0",
-    "eslint-config-preact": "^1.3.0",
-    "eslint-plugin-import": "^2.26.0",
-    "jest": "^28.1.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
-    "prettier": "^2.6.2",
-    "prettier-plugin-tailwindcss": "^0.1.11",
-    "tailwindcss": "^3.0.24",
-    "typescript": "^4.7.3"
+    "tailwindcss": "^3.0.24"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -53,48 +36,5 @@
         "react"
       ]
     }
-  },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "preact",
-      "plugin:import/typescript",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended",
-      "eslint:recommended"
-    ],
-    "ignorePatterns": [
-      "dist/"
-    ],
-    "settings": {
-      "import/resolver": {
-        "node": {
-          "extensions": [
-            ".js",
-            ".jsx",
-            ".ts",
-            ".tsx"
-          ]
-        }
-      }
-    },
-    "rules": {
-      "@typescript-eslint/ban-ts-comment": "off",
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "error"
-      ]
-    }
-  },
-  "prettier": {
-    "singleQuote": true,
-    "bracketSameLine": true,
-    "tailwindConfig": "tailwind.config.js",
-    "plugins": [
-      "prettier-plugin-tailwindcss"
-    ]
   }
 }

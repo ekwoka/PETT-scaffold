@@ -31,13 +31,17 @@ function draftWithArrow(text = '') {
 
 const optionDefinitions = [
   { name: 'dir', type: String, defaultOption: true },
-  { name: 'package-manager', alias: 'p', type: String, defaultValue: 'npm' }
+  { name: 'package-manager', alias: 'p', type: String, defaultValue: 'npm' },
 ];
 
 const options = commandLineArgs(optionDefinitions);
 
 const dest = options.dir ? `${options.dir}` : 'new-pett-app';
-const packageManager = ['pnpm', 'npm', 'yarn'].includes(options['package-manager']) ? `${options['package-manager']}` : 'npm';
+const packageManager = ['pnpm', 'npm', 'yarn'].includes(
+  options['package-manager']
+)
+  ? `${options['package-manager']}`
+  : 'npm';
 
 const updateStatus = draftWithArrow('Building New PETT App...');
 
@@ -45,7 +49,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 let ncpConfig = {
-  clobber: false
+  clobber: false,
 };
 const result = await new Promise((res, rej) => {
   ncp(path.resolve(__dirname, '../dist'), dest, ncpConfig, (er) => {

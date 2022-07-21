@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@ekwoka/preact-global-state": "^0.1.2",
+    "@ekwoka/hotkeys": "^0.1.3"
+  }
+}

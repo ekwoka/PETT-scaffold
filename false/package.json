@@ -1,0 +1,61 @@
+{
+  "name": "pett-app-template",
+  "version": "0.2.3",
+  "description": "",
+  "scripts": {
+    "build": "run-s tsc build:*",
+    "build:1js": "node scripts/esbuild.mjs",
+    "build:2css": "tailwindcss -i src/tailwind.pre.css -o dist/styles.css -m",
+    "tsc": "tsc",
+    "watch": "run-p watch:*",
+    "watch:css": "tailwindcss -i src/tailwind.pre.css -o dist/styles.css -w",
+    "watch:js": "NODE_ENV=development node scripts/esbuild.mjs"
+  },
+  "author": "Eric Kwoka",
+  "license": "MIT",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react"
+      ]
+    }
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "preact",
+      "plugin:import/typescript",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "eslint:recommended"
+    ],
+    "ignorePatterns": [
+      "dist/"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      }
+    },
+    "rules": {
+      "@typescript-eslint/ban-ts-comment": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error"
+      ]
+    }
+  },
+  "dependencies": {
+    "typescript": "^4.7.3"
+  }
+}
