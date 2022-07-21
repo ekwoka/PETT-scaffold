@@ -14,8 +14,8 @@
     "create": "node bin/index.js -lp pnpm",
     "test": "run-s build create clean",
     "lint": "prettier --write . --loglevel error",
-    "patch": "pnpm version patch && pnpm publish",
-    "minor": "pnpm version minor && pnpm publish"
+    "patch": "pnpm run build && pnpm version patch && pnpm publish",
+    "minor": "pnpm run build && pnpm version minor && pnpm publish"
   },
   "dependencies": {
     "command-line-args": "^5.2.1",
