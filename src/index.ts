@@ -8,6 +8,8 @@ import { buildPackage } from './packages/buildpackage.js';
 import { install } from './install.js';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { buildBundles } from './packages/buildBundles.js';
+import { showHelp } from './utils/help.js';
+import { exit } from 'node:process';
 DraftLog(console);
 
 console.time('App Built');
@@ -15,13 +17,23 @@ console.time('App Built');
 const optionDefinitions = [
   {
     name: 'dir',
+    description: 'The directory in which your project is created',
     type: String,
     defaultOption: true,
-    defaultValue: 'new-pett-app',
+    defaultValue: undefined,
+  },
+  {
+    name: 'help',
+    alias: 'h',
+    description: 'Shows this help screen',
+    type: (T: string) => !(T === 'false'),
+    defaultValue: 'false',
   },
   {
     name: 'packagemanager',
     alias: 'p',
+    description: 'Which package manager to use',
+    typeLabel: 'pnpm | {underline npm} | yarn | bun',
     type: (pm: string) =>
       ['pnpm', 'npm', 'yarn', 'bun'].includes(pm) ? pm : 'npm',
     defaultValue: 'npm',
@@ -29,22 +41,31 @@ const optionDefinitions = [
   {
     name: 'typescript',
     alias: 'T',
+    description: 'Include typescript in the project',
+    typeLabel: '{underline true} | false',
     type: (T: string) => !(T === 'false'),
     defaultValue: 'true',
   },
-  { name: 'lint', alias: 'l', type: Boolean, defaultValue: false },
+  { name: 'lint', alias: 'l', description: 'Include eslint and prettier in the project', typeLabel: 'true | {underline false}', type: Boolean, defaultValue: false },
   { name: 'test', alias: 't', type: Boolean, defaultValue: false },
   { name: 'netlify', alias: 'n', type: Boolean, defaultValue: false },
 ];
 
 const {
   dir,
+  help,
   packagemanager: packageManager,
   typescript,
   lint,
   test,
   netlify,
 } = commandLineArgs(optionDefinitions);
+
+if (help || !dir) {
+  // Slice so that the "dir" option isn't displayed in the help
+  showHelp(optionDefinitions.slice(1));
+  exit(0);
+}
 
 const updateStatus = intervalProgress('Building New PETT App...');
 
