@@ -69,8 +69,7 @@ const {
 } = commandLineArgs(optionDefinitions);
 
 if (help || !dir) {
-  // Slice so that the "dir" option isn't displayed in the help
-  showHelp(optionDefinitions.slice(1));
+  showHelp(optionDefinitions.filter(it => !it.defaultOption));
   exit(0);
 }
 
