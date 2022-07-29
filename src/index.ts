@@ -46,7 +46,14 @@ const optionDefinitions = [
     type: (T: string) => !(T === 'false'),
     defaultValue: 'true',
   },
-  { name: 'lint', alias: 'l', description: 'Include eslint and prettier in the project', typeLabel: 'true | {underline false}', type: Boolean, defaultValue: false },
+  {
+    name: 'lint',
+    alias: 'l',
+    description: 'Include eslint and prettier in the project',
+    typeLabel: 'true | {underline false}',
+    type: Boolean,
+    defaultValue: false,
+  },
   { name: 'test', alias: 't', type: Boolean, defaultValue: false },
   { name: 'netlify', alias: 'n', type: Boolean, defaultValue: false },
 ];
