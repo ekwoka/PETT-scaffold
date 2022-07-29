@@ -26,8 +26,8 @@ const optionDefinitions = [
     name: 'help',
     alias: 'h',
     description: 'Shows this help screen',
-    type: (T: string) => !(T === 'false'),
-    defaultValue: 'false',
+    type: Boolean,
+    defaultValue: false,
   },
   {
     name: 'packagemanager',
