@@ -2,14 +2,18 @@
 import { join } from 'node:path';
 import commandLineArgs from 'command-line-args';
 import DraftLog from 'draftlog';
-import { execShellCommand, intervalProgress } from './utils/index.js';
-import { inCYAN, inGREEN } from './utils/colors.js';
 import { buildPackage } from './packages/buildpackage.js';
 import { install } from './install.js';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { buildBundles } from './packages/buildBundles.js';
-import { showHelp } from './utils/help.js';
 import { exit } from 'node:process';
+import {
+  execShellCommand,
+  inCYAN,
+  inGREEN,
+  intervalProgress,
+  showHelp,
+} from './utils/index.js';
 DraftLog(console);
 
 console.time('App Built');
