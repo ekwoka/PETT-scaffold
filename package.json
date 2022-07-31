@@ -15,7 +15,7 @@
   "scripts": {
     "build": "node scripts/esbuild.js",
     "clean": "rm -rf new-pett-app",
-    "create": "node bin/index.js -lp pnpm",
+    "create": "node bin/index.js --help && node bin/index.js -lp pnpm new-pett-app",
     "test": "run-s build create clean",
     "lint": "prettier --write . --loglevel error",
     "patch": "pnpm run build && pnpm version patch && pnpm publish",
