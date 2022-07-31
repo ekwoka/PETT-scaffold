@@ -12,8 +12,8 @@ export function showHelp(options: OptionDefinition[]) {
     {
       header: 'Usage',
       content: [
-        '$ npx create-pett-app [...options] <directory>',
-        '$ npx create-pett-app --help',
+        '$ npm init pett-app [...options] <directory>',
+        '$ npm init pett-app --help',
       ],
     },
     {
