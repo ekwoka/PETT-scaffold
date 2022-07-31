@@ -1,5 +1,6 @@
 import { OptionDefinition } from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
+import { exit } from 'node:process';
 
 export function showHelp(options: OptionDefinition[]) {
   const help = commandLineUsage([
@@ -17,9 +18,11 @@ export function showHelp(options: OptionDefinition[]) {
     },
     {
       header: 'Options',
-      optionList: options,
+      optionList: options.filter((it) => !it.defaultOption),
     },
   ]);
 
   console.log(help);
+
+  exit(0);
 }

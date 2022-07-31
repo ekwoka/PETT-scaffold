@@ -29,10 +29,7 @@ const {
   netlify,
 } = commandLineArgs(optionDefinitions);
 
-if (help || !dir) {
-  showHelp(optionDefinitions.filter(it => !it.defaultOption));
-  exit(0);
-}
+if (help || !dir) showHelp(optionDefinitions);
 
 const updateStatus = intervalProgress('Building New PETT App...');
 
