@@ -2,49 +2,34 @@
 import { join } from 'node:path';
 import commandLineArgs from 'command-line-args';
 import DraftLog from 'draftlog';
-import { execShellCommand, intervalProgress } from './utils/index.js';
-import { inCYAN, inGREEN } from './utils/colors.js';
 import { buildPackage } from './packages/buildpackage.js';
 import { install } from './install.js';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { buildBundles } from './packages/buildBundles.js';
+import { exit } from 'node:process';
+import {
+  execShellCommand,
+  inCYAN,
+  inGREEN,
+  intervalProgress,
+  showHelp,
+} from './utils/index.js';
+import { optionDefinitions } from './config.js';
 DraftLog(console);
 
 console.time('App Built');
 
-const optionDefinitions = [
-  {
-    name: 'dir',
-    type: String,
-    defaultOption: true,
-    defaultValue: 'new-pett-app',
-  },
-  {
-    name: 'packagemanager',
-    alias: 'p',
-    type: (pm: string) =>
-      ['pnpm', 'npm', 'yarn', 'bun'].includes(pm) ? pm : 'npm',
-    defaultValue: 'npm',
-  },
-  {
-    name: 'typescript',
-    alias: 'T',
-    type: (T: string) => !(T === 'false'),
-    defaultValue: 'true',
-  },
-  { name: 'lint', alias: 'l', type: Boolean, defaultValue: false },
-  { name: 'test', alias: 't', type: Boolean, defaultValue: false },
-  { name: 'netlify', alias: 'n', type: Boolean, defaultValue: false },
-];
-
 const {
   dir,
+  help,
   packagemanager: packageManager,
   typescript,
   lint,
   test,
   netlify,
 } = commandLineArgs(optionDefinitions);
+
+if (help || !dir) showHelp(optionDefinitions);
 
 const updateStatus = intervalProgress('Building New PETT App...');
 
